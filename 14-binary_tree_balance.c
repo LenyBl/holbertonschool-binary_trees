@@ -10,24 +10,12 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	int countLeft;
 	int countRight;
-	int countTotal;
 
 	if (tree == NULL)
 		return (0);
 
-	if (tree->left != NULL)
-	{
-		countLeft + 1;
-	}
-	else if (tree->right != NULL)
-	{
-		countRight + 1;
-	}
-
 	countLeft = binary_tree_balance(tree->left);
 	countRight = binary_tree_balance(tree->right);
 
-	countTotal = countLeft - countRight;
-
-	return (countTotal);
+	return (countLeft - countRight);
 }
