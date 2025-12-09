@@ -17,11 +17,11 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (tree->left != NULL)
 	{
-		countLeft++;
+		countLeft + 1;
 	}
 	else if (tree->right != NULL)
 	{
-		countRight++;
+		countRight + 1;
 	}
 
 	countLeft = binary_tree_balance(tree->left);
