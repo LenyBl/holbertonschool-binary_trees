@@ -26,4 +26,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	printf("Height form %i: %li", tree->n, count);
 
 	binary_tree_height(tree);
+
+	return (0);
 }
