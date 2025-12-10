@@ -1,73 +1,104 @@
 # holbertonschool-binary_trees
 
-Ce dépôt contient des implémentations en langage C de structures
-d'arbres binaires et d'algorithmes afférents --- arbres binaires
-basiques, BST, AVL, tas (heaps), etc.\
-Ce projet a été réalisé dans le cadre du cursus Holberton School.
+![C Language](https://img.shields.io/badge/Language-C-blue.svg)
+![Status](https://img.shields.io/badge/Project-Active-success.svg)
+![Holberton](https://img.shields.io/badge/Holberton-School-red.svg)
+![License](https://img.shields.io/badge/License-Unspecified-lightgrey.svg)
+
+Projet réalisé dans le cadre du cursus **Holberton School**, ce dépôt
+contient une implémentation complète d'arbres binaires et de leurs
+dérivés en langage C : Binary Trees, Binary Search Trees (BST), AVL,
+Heaps, et diverses opérations avancées.
 
 ------------------------------------------------------------------------
 
-## Table des matières
+## 📌 Table des matières
 
-1.  Description générale\
-2.  Contenu du dépôt\
-3.  Prérequis / Environnement\
-4.  Compilation & Tests\
-5.  Usage / Exemples\
-6.  Contributions\
-7.  Licence
-
-------------------------------------------------------------------------
-
-## Description générale
-
-Ce projet vise à implémenter plusieurs opérations et structures liées
-aux arbres binaires en C : insertion, suppression, parcours (pré‑ordre,
-in‑ordre, post‑ordre), calcul de hauteur, profondeur, nombre de
-nœuds/feuilles, vérifications (arbre parfait, arbre complet, arbre
-plein, etc.), et plus encore.
+-   [Description générale](#description-générale)
+-   [Fonctionnalités](#fonctionnalités)
+-   [Architecture du dépôt](#architecture-du-dépôt)
+-   [Prérequis](#prérequis)
+-   [Compilation](#compilation)
+-   [Exemples d'utilisation](#exemples-dutilisation)
+-   [Bonnes pratiques](#bonnes-pratiques)
+-   [Contribuer](#contribuer)
+-   [Licence](#licence)
 
 ------------------------------------------------------------------------
 
-## Contenu du dépôt
+## 🧩 Description générale
 
--   `binary_trees.h` --- header définissant la structure d'arbre binaire
-    et les prototypes de fonctions.\
--   Plusieurs fichiers `.c` implémentant diverses fonctionnalités :
-    insertion, suppression, parcours, calcul de profondeur/hauteur,
-    vérifications structurelles, relations entre nœuds (parent, sibling,
-    uncle), etc.
+Ce projet implémente une large gamme de fonctionnalités permettant de
+manipuler des arbres binaires :
+
+-   Création et suppression de nœuds\
+-   Insertion gauche/droite\
+-   Parcours : pré‑ordre, in‑ordre, post‑ordre, niveau\
+-   Calculs : hauteur, profondeur, balance factor, nombre de nœuds,
+    feuilles...\
+-   Vérifications : arbre parfait, complet, plein, BST valide\
+-   Structures avancées : BST, AVL, Heap Max\
+-   Fonctions de rotation pour équilibrage
+
+L'objectif est de fournir une base solide pour comprendre et manipuler
+des arbres binaires en C.
 
 ------------------------------------------------------------------------
 
-## Prérequis & Environnement
+## 📁 Architecture du dépôt
 
--   Compilateur C (GCC, Clang...)\
--   Environnement Linux/Unix ou équivalent\
--   Outils facultatifs : valgrind, gdb
+    holbertonschool-binary_trees/
+    │
+    ├── binary_trees.h        # Définitions de structures et prototypes
+    ├── *.c                   # Implémentations des fonctions
+    ├── README.md             # Documentation
 
 ------------------------------------------------------------------------
 
-## Compilation & Tests
+## 🔧 Prérequis
+
+-   Compilateur **GCC**\
+-   Outils recommandés :
+    -   `valgrind` (analyse mémoire)\
+    -   `gdb` (debugger)
+
+------------------------------------------------------------------------
+
+## 🛠️ Compilation
+
+Compiler tous les fichiers :
 
 ``` bash
 gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o binary_tree_test
+```
+
+Exécuter :
+
+``` bash
 ./binary_tree_test
 ```
 
 ------------------------------------------------------------------------
 
-## Usage / Exemples
+## 💡 Exemples d'utilisation
 
 ``` c
 #include "binary_trees.h"
 
-int main(void) {
-    binary_tree_t *root = binary_tree_node(NULL, 10);
-    binary_tree_insert_left(root, 5);
-    binary_tree_insert_right(root, 15);
+void print_node(int n)
+{
+    printf("%d\n", n);
+}
 
-    binary_tree_inorder(root, your_print_func);
+int main(void)
+{
+    binary_tree_t *root = binary_tree_node(NULL, 98);
+
+    binary_tree_insert_left(root, 12);
+    binary_tree_insert_right(root, 402);
+
+    printf("In-order traversal:\n");
+    binary_tree_inorder(root, print_node);
 
     binary_tree_delete(root);
     return (0);
@@ -76,16 +107,36 @@ int main(void) {
 
 ------------------------------------------------------------------------
 
-## Contributions
+## 🧭 Bonnes pratiques
 
-1.  Fork le repo\
-2.  Crée une branche\
-3.  Commit propre\
-4.  Ouvre une Pull Request
+-   Respecter la norme **C89/C90**\
+-   Toujours vérifier les retours d'allocation mémoire\
+-   Free systématique avec `binary_tree_delete()`\
+-   Favoriser un code **clair**, **commenté** et **modulaire**
 
 ------------------------------------------------------------------------
 
-## Licence
+## 🤝 Contribuer
 
-Projet non licencié explicitement --- soumis au droit d'auteur par
+Les contributions sont ouvertes !
+
+1.  Fork du projet\
+2.  Création d'une branche `feature/...` ou `fix/...`\
+3.  Commits propres et explicites\
+4.  Pull request détaillée
+
+------------------------------------------------------------------------
+
+## 📄 Licence
+
+Aucune licence explicite --- le dépôt est soumis au droit d'auteur par
 défaut.
+
+------------------------------------------------------------------------
+
+## 👤 Auteur
+
+- [Blee Leny](https://github.com/LenyBl)
+- [Ethane Zimmermann](https://github.com/ZimEthane)
+
+Projet créé par **LenyBl** et **ZimEthane** dans le cadre de Holberton School.
